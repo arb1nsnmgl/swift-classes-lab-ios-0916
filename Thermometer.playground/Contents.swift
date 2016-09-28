@@ -14,6 +14,21 @@
  */
 // write your code here
 
+class Thermometer {
+    
+    var fahrenheit: Double
+    var celsius: Double {
+        get { return (fahrenheit - 32.0) * 0.56 }
+        set { fahrenheit = (celsius * 1.8) + 32 }
+    }
+    var description: String { return "The current temperature is \(self.fahrenheit)°F (\(self.celsius)°C)" }
+      
+    init(fahrenheit: Double) {
+        self.fahrenheit = fahrenheit
+    }
+    
+}
+
 /*: section2
  
  ## Question 2
@@ -21,6 +36,7 @@
  Good! Now, create a `Thermometer` instance that has an initial value of `88.0` for `fahrenheit`. This instance should be a _variable_. Call it `thermometer`.
  */
 // write your code here
+var thermometer = Thermometer(fahrenheit: 88.0)
 
 assert(thermometer.fahrenheit == 88.0, "thermometer.fahrenheit is \(thermometer.fahrenheit)")
 
@@ -41,6 +57,7 @@ assert(thermometer.celsius - 31.1 < 0.1, "thermometer.celsius is \(thermometer.c
  Perfect! Now, change the `fahrenheit` temperature of your `Thermometer` instance to 100.0.
  */
 // write your code here
+thermometer.fahrenheit = 100.0
 
 assert(thermometer.fahrenheit == 100.0, "thermometer.fahrenheit is \(thermometer.fahrenheit)")
 assert(thermometer.celsius - 37.7 < 0.1, "thermometer.celsius is \(thermometer.celsius)")
